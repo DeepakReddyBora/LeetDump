@@ -15,7 +15,10 @@ public:
             }
 
             if(!st.empty()) {
-                temp[i] = st.top();
+                mp[nums2[i]] = st.top();
+            }
+            else if(st.empty()) {
+                mp[nums2[i]] = -1;
             }
            
             st.push(nums2[i]); 
@@ -25,8 +28,7 @@ public:
         vector<int> ans(n);
 
         for(int i = 0; i < n; i++) {
-            int index = mp[nums1[i]];
-            ans[i] = temp[index];
+            ans[i] = mp[nums1[i]];
         }
         
         return ans;
