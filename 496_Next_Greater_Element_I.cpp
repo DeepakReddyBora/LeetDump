@@ -5,9 +5,7 @@ public:
         unordered_map<int, int> mp;
 
         int m = nums2.size();
-
-        vector<int> temp(m, -1);
-
+        
         for(int i = m - 1; i >= 0; i--) {
             mp[nums2[i]] = i;
             while(!st.empty() && st.top() <= nums2[i]) {
