@@ -18,7 +18,7 @@ public:
             suffixMax[i] = max(height[i], suffixMax[i + 1]);
         }
 
-        for(int i = 0; i < n; i++) {
+        for(int i = 0; i < n - 1; i++) {
             if(height[i] < prefixMax[i] && height[i] < suffixMax[i]) {
                 ans += min(prefixMax[i], suffixMax[i]) - height[i];
             }
