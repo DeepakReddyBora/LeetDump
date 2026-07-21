@@ -5,13 +5,9 @@ public:
 
         int ans = 0;
 
-        vector<int> prefixMax(n);
         vector<int> suffixMax(n);
 
-        prefixMax[0] = height[0];
-        for(int i = 1; i < n; i++) {
-            prefixMax[i] = max(height[i], prefixMax[i - 1]);
-        }
+        int leftMax = height[0];
 
         suffixMax[n - 1] = height[n - 1];
         for(int i = n - 2; i >= 0; i--) {
@@ -19,8 +15,9 @@ public:
         }
 
         for(int i = 0; i < n; i++) {
-            if(height[i] < prefixMax[i] && height[i] < suffixMax[i]) {
-                ans += min(prefixMax[i], suffixMax[i]) - height[i];
+            if(height[i] > leftMax) leftMax = height[i];
+            if(height[i] < leftMax && height[i] < suffixMax[i]) {
+                ans += min(leftMax, suffixMax[i]) - height[i];
             }
         }
 
