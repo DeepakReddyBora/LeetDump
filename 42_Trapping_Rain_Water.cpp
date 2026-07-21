@@ -13,12 +13,12 @@ public:
             prefixMax[i] = max(height[i], prefixMax[i - 1]);
         }
 
-        suffixMax[0] = height[n - 1];
+        suffixMax[n - 1] = height[n - 1];
         for(int i = n - 2; i >= 0; i--) {
             suffixMax[i] = max(height[i], suffixMax[i + 1]);
         }
 
-        for(int i = 0; i < n - 2; i++) {
+        for(int i = 0; i < n; i++) {
             if(height[i] < prefixMax[i] && height[i] < suffixMax[i]) {
                 ans += min(prefixMax[i], suffixMax[i]) - height[i];
             }
