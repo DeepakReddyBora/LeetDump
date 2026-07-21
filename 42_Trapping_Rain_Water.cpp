@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        int n = height.size();
+
+        int ans = 0;
+
+        vector<int> prefixMax(n);
+        vector<int> suffixMax(n);
+
+        prefixMax[0] = height[0];
+        for(int i = 1; i < n; i++) {
+            prefixMax[i] = max(height[i], prefixMax[i - 1]);
+        }
+
+        suffixMax[0] = height[n - 1];
+        for(int i = n - 2; i >= 0; i--) {
+            suffixMax[i] = max(height[i], suffixMax[i + 1]);
+        }
+
+        for(int i = 1; i < n - 1; i++) {
+            if(i < prefixMax[i] && i < suffixMax[i]) {
+                ans += min(prefixMax[i], suffixMax[i]) - height[i];
+            }
+        }
+
+        return ans;
+    } 
+};
