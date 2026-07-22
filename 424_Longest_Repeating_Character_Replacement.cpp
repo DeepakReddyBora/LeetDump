@@ -2,7 +2,7 @@ class Solution {
 public:
     int characterReplacement(string s, int k) {
         int n = s.size();
-        vector<int> hash(n, 0);
+        vector<int> hash(26, 0);
 
         int maxLen = 0;
 
