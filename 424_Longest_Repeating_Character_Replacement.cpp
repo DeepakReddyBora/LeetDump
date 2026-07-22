@@ -11,7 +11,7 @@ public:
 
             for(int j = i; j < n; j++) {
                 hash[s[j] - 'A']++;
-                maxFreq = max(maxFreq, hash[j]);
+                maxFreq = max(maxFreq, hash[s[j] - 'A']);
                 int changes = (j - i + 1) - maxFreq;
 
                 if(changes <= k) {
