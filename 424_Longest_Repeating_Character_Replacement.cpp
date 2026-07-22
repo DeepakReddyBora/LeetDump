@@ -15,7 +15,7 @@ public:
                 int changes = (j - i + 1) - maxFreq;
 
                 if(changes <= k) {
-                    maxLen = max(maxLen, (j - i + 1));
+                    maxLen = max(maxLen, (j - i));
                 }
                 else {
                     break;
