@@ -54,7 +54,7 @@ public:
         }
 
         sort(start.begin(), start.end());
-        sort(end.begin(), end.begin());
+        sort(end.begin(), end.end());
 
         for(int i = 0; i < people.size(); i++) {
             int target = people[i];
